@@ -35,14 +35,13 @@ class Category extends StatelessWidget {
   /// This information includes the icon, name, and color for the [Category].
   @override
   Widget build(BuildContext context) {
-    // TODO: Build the custom widget here, referring to the Specs.
     return Container(
       height: _height, // ignore: argument_type_not_assignable
       child: InkWell(
         // ignore: argument_type_not_assignable
         borderRadius: _borderRadius,
-        highlightColor: color,
-        splashColor: color,
+        highlightColor: color.withOpacity(1),
+        splashColor: color.withOpacity(1),
           child: Row(
             children: <Widget>[
               Padding(
@@ -60,7 +59,7 @@ class Category extends StatelessWidget {
             ],
           ),
         onTap: (){
-          print("Hello");
+          print("Hello" + name + " - " + color.toString());
         },
       ),
     );

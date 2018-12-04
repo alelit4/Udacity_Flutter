@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 // You can use a relative import, i.e. `import 'category.dart';` or
 // a package import, as shown below.
 // More details at http://dart-lang.github.io/linter/lints/avoid_relative_lib_imports.html
-import 'package:udacity_flutter_app/category.dart';
+import 'package:udacity_flutter_app/category_route.dart';
 
 void main() => runApp(MyApp());
 
@@ -58,9 +58,9 @@ class FirstCategory extends StatelessWidget {
   }
 }
 
-const _categoryName = 'Cake';
-const _categoryIcon = Icons.cake;
-const _categoryColor = Colors.green;
+//const _categoryName = 'Cake';
+//const _categoryIcon = Icons.cake;
+//const _categoryColor = Colors.green;
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -74,9 +74,7 @@ class MyApp extends StatelessWidget {
           title: Text("My F**ter App"),
         ),
         body: Center(
-          child: Category(name: _categoryName,
-            color: _categoryColor,
-            iconLocation: _categoryIcon,),
+          child: CategoryRoute(),
         ),
       ),
     );
