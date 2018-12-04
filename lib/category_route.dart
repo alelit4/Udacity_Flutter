@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:udacity_flutter_app/category.dart';
-
+import 'unit.dart';
 
 class CategoryRoute extends StatelessWidget {
 
@@ -52,15 +52,40 @@ List<Category> _loadCategories(List<String> categoryNames, List<Color> categoryC
     categories.add(Category(
       name: categoryNames[i],
       color: categoryColors[i],
+      units: _retrieveUnitList(categoryNames[i]),
       iconLocation: Icons.cake,
     ));
   }
   return categories;
 }
 
+/// Returns a list of mock [Unit]s.
+List<Unit> _retrieveUnitList(String categoryName) {
+  return List.generate(10, (int i) {
+    i += 1;
+    return Unit(
+      name: '$categoryName Unit $i',
+      conversion: i.toDouble(),
+    );
+  });
+}
+
 Widget _buildCategoryWidgets (List<Category> categories){
 
-  return ListView.builder(
+  final appBar = AppBar(
+    elevation: 0.0,
+    title: Text(
+      'Unit Converter',
+      style: TextStyle(
+        color: Colors.black,
+        fontSize: 30.0,
+      ),
+    ),
+    centerTitle: true,
+    backgroundColor: Colors.white70,
+  );
+
+  final listView =  ListView.builder(
     padding: EdgeInsets.all(8.0),
     itemCount: categories.length,
     itemBuilder: (BuildContext context, int index) {
@@ -68,6 +93,10 @@ Widget _buildCategoryWidgets (List<Category> categories){
     },
   );
 
+  return Scaffold(
+    appBar: appBar,
+    body: listView,
+  );
 }
 
 

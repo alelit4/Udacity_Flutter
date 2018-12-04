@@ -62,7 +62,7 @@ class FirstCategory extends StatelessWidget {
 //const _categoryIcon = Icons.cake;
 //const _categoryColor = Colors.green;
 
-class MyApp extends StatelessWidget {
+class _MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -77,6 +77,17 @@ class MyApp extends StatelessWidget {
           child: CategoryRoute(),
         ),
       ),
+    );
+  }
+}
+
+class MyApp extends StatelessWidget {
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: CategoryRoute(),
     );
   }
 }
